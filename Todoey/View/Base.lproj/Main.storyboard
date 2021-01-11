@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="if5-Kt-fEK">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="V94-06-ZbJ">
+            <objects>
+                <navigationController id="if5-Kt-fEK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QJa-vJ-aAh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pIP-BG-nRl" kind="relationship" relationship="rootViewController" id="OuY-oN-zLr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Zp-qD-PyS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-646" y="138"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Todoey" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ww5-oU-4XB">
+                                <rect key="frame" x="-9" y="0.0" width="423" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="Z4a-lZ-TkP">
+                                    <rect key="frame" x="0.0" y="0.0" width="423" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="BYZ-38-t0r" id="Iv8-hf-sPk"/>
+                                    </connections>
+                                </searchBar>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoeyTableViewCell" rowHeight="53" id="u5q-gz-D3c" customClass="todoeyTableViewCell" customModule="Todoey" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="423" height="53"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u5q-gz-D3c" id="t1c-cF-ama">
+                                            <rect key="frame" x="0.0" y="0.0" width="423" height="53"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="m5v-Pf-GTE"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="8ZC-b0-ZVG"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="Ww5-oU-4XB" secondAttribute="leading" constant="9" id="4co-cJ-qiV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="Ww5-oU-4XB" secondAttribute="top" constant="88" id="Goc-FK-xsB"/>
+                            <constraint firstItem="Ww5-oU-4XB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="fhB-YI-ISr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ww5-oU-4XB" secondAttribute="trailing" id="lgR-gE-mVR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vDS-Tu-sEu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="RTm-uG-dBr">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addNewItemBtn:" destination="BYZ-38-t0r" id="1F9-zJ-C12"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="todoeyTableView" destination="Ww5-oU-4XB" id="pRj-H0-vb1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894" y="130"/>
+        </scene>
+        <!--Category View Controller-->
+        <scene sceneID="IYD-5Y-ong">
+            <objects>
+                <viewController id="pIP-BG-nRl" customClass="CategoryViewController" customModule="Todoey" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l7o-dM-fh3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2rq-Qu-oh8">
+                                <rect key="frame" x="-9" y="0.0" width="423" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="OqC-PM-WbE">
+                                    <rect key="frame" x="0.0" y="0.0" width="423" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="pIP-BG-nRl" id="Qhi-Bx-mwo"/>
+                                    </connections>
+                                </searchBar>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryTableViewCell" rowHeight="53" id="0PC-Bv-08P" customClass="CategoryTableViewCell" customModule="Todoey" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="423" height="53"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0PC-Bv-08P" id="Bpe-FJ-wqS">
+                                            <rect key="frame" x="0.0" y="0.0" width="423" height="53"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="pIP-BG-nRl" id="c35-XJ-vi9"/>
+                                    <outlet property="delegate" destination="pIP-BG-nRl" id="mSr-Ej-Z8Y"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="01T-hB-w08"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="01T-hB-w08" firstAttribute="top" secondItem="2rq-Qu-oh8" secondAttribute="top" constant="88" id="Qqe-JK-WGw"/>
+                            <constraint firstItem="01T-hB-w08" firstAttribute="trailing" secondItem="2rq-Qu-oh8" secondAttribute="trailing" id="XSS-fP-8Yp"/>
+                            <constraint firstItem="2rq-Qu-oh8" firstAttribute="bottom" secondItem="01T-hB-w08" secondAttribute="bottom" constant="34" id="YFp-Fp-th1"/>
+                            <constraint firstItem="01T-hB-w08" firstAttribute="leading" secondItem="2rq-Qu-oh8" secondAttribute="leading" constant="9" id="zWu-0T-QeD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6Pd-9T-60b">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zAK-hU-zYz">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addItemButton:" destination="pIP-BG-nRl" id="t8K-Mx-Iwt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="2rq-Qu-oh8" id="SsE-wG-9U3"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToItems" id="ESq-F5-r88"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fw3-ci-S1j" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="138"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
